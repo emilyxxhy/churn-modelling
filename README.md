@@ -1,68 +1,110 @@
-# Churn Modelling — **Zero-Stress Quickstart**
+# 🏦 Customer Churn Analysis (SQL · Python · Excel · ML)
 
-This tiny kit is the _simplest possible_ version of the project. No fancy tools yet.  
-You’ll do 3 things:
-1) put the CSV in `data_raw/`,  
-2) run **one** Python script,  
-3) open the PNG charts and CSV outputs.
+This project analyzes customer churn using the **Kaggle Churn Modelling dataset** (~10k customers).  
+It demonstrates **end-to-end data analytics skills**: data cleaning, SQL, exploratory data analysis, machine learning, and business reporting.
+
+**Key Deliverables**
+- Cleaned dataset (`data_intermediate/churn_clean.csv`)
+- SQL summaries & aggregates (`data_exports/*.csv`, `churn_sql_summaries.xlsx`)
+- Trained ML model (`models/best_model.joblib`) + metrics
+- Excel pivots (`reports/churn_excel_views.xlsx`)
+- Business readout (`reports/churn_readout.pdf`)
 
 ---
 
-## 1) Setup (copy/paste)
+## 📂 Project Structure
 
-**macOS / Linux**
+churn-modelling/
+├─ data_raw/ # raw Kaggle CSV
+├─ data_intermediate/ # cleaned & banded datasets
+├─ data_exports/ # SQL + model outputs for Excel/BI
+├─ models/ # saved models + metrics.json
+├─ notebooks/ # Jupyter notebooks for EDA
+├─ reports/ # Excel views, PDF readout, charts
+├─ src/
+│ ├─ data/ # data loaders, SQLite, exports
+│ ├─ models/ # training & evaluation scripts
+│ └─ viz/ # optional chart exports
+├─ requirements.txt # Python dependencies
+├─ README.md # this file
+└─ .gitignore
+
+
+---
+
+## ⚙️ Setup
+
+### 1. Clone & create environment
 ```bash
+git clone https://github.com/<your-username>/churn-modelling.git
+cd churn-modelling
+python3 -m venv .venv
+source .venv/bin/activate   # (Windows: .venv\Scripts\activate)
+pip install -r requirements.txt
+
+mkdir -p data_raw
+kaggle datasets download -d shrutimechlearn/churn-modelling -p data_raw --unzip
+
+# 0. Setup
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-```
 
-**Windows (PowerShell)**
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
+# 1. Download raw data
+kaggle datasets download -d shrutimechlearn/churn-modelling -p data_raw --unzip
 
-> If you’ve never used a virtual environment, don’t worry—just copy the two lines.
+# 2. Clean → saves data_intermediate/churn_clean.csv
+jupyter notebook notebooks/01_quick_audit.ipynb   # or run your cleaner script
 
----
+# 3. (Optional) Extra EDA → outputs churn_banded.csv
+jupyter notebook notebooks/02_eda.ipynb
 
-## 2) Get the data (no Kaggle CLI needed)
+# 4. Load into SQLite
+python src/data/load_to_sqlite.py
 
-- Download the dataset in your browser: **Kaggle → “Churn Modelling” (by shrutimechlearn)**.
-- Save the file as `Churn_Modelling.csv` into the `data_raw/` folder in this project.
+# 5. Export SQL aggregates for BI/Excel
+python src/data/make_dataset.py
 
-> Tip: If the file is zipped, unzip it and move the CSV only.
+# 6. Train ML model (+ metrics & plots)
+python src/models/train_model.py
+python src/models/evaluate.py   # optional: feature importance
 
----
+# 7. Build Excel pivots (manual) → reports/churn_excel_views.xlsx
 
-## 3) Run one command
+# 8. (Optional) Tableau/Power BI dashboard → reports/churn_dashboard.pbix / .twb
 
-```bash
-python src/quickstart.py
-```
+# 9. Business Readout (Word → PDF)
+reports/churn_readout.pdf
 
-What you get:
-- Cleaned CSV → `data_intermediate/churn_clean.csv`
-- Simple aggregates → `data_exports/geo_gender.csv`, `data_exports/age_tenure.csv`
-- Quick charts → PNGs in `reports/`
-- A tiny model (Logistic Regression) + metrics printed in the terminal
+📊 Example Insights
 
----
+Churn rate ≈ 20% overall.
 
-## 4) Open the outputs
+Higher churn in Germany vs. France/Spain.
 
-- PNG charts in `reports/`
-- CSVs in `data_exports/` (open in Excel if you want)
-- (Optional later) Load CSVs into Power BI for an interactive dashboard.
+Customers with 2 products churn the most.
 
----
+Younger, low-tenure customers at greater risk.
 
-## Upgrades when ready (optional)
-- Swap in SQLite and run the example SQL in `sql/exploration.sql`
-- Try `src/load_to_sqlite.py` then `sql/exploration.sql`
-- Replace the simple model with RandomForest and add feature importance
+Random Forest model achieved ROC-AUC ≈ 0.84.
 
----
+📝 Recommendations
 
-_Last updated: 2025-09-12_
+Focus retention strategy on 2-product customers.
+
+Target German market with tailored offers.
+
+Engage younger customers through digital-first channels.
+
+Aim to reduce churn by 3–5% in 6 months.
+
+🔑 Skills Highlighted
+
+Python (pandas, scikit-learn, matplotlib, seaborn)
+
+SQL (SQLite, group-bys, aggregations)
+
+Excel (PivotTables, heatmaps)
+
+ML (Random Forest, Logistic Regression, GridSearchCV)
+
+Business storytelling → Excel pivots + PDF readout
