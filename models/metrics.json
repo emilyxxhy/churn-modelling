@@ -1,0 +1,54 @@
+{
+  "model": "rf",
+  "cv_roc_auc": 0.8553321840120365,
+  "holdout": {
+    "roc_auc": 0.8569447721990094,
+    "accuracy": 0.8655,
+    "precision": 0.8108108108108109,
+    "recall": 0.44226044226044225,
+    "f1": 0.5723370429252782,
+    "classification_report": {
+      "0": {
+        "precision": 0.8723284589426322,
+        "recall": 0.9736346516007532,
+        "f1-score": 0.920201720557698,
+        "support": 1593.0
+      },
+      "1": {
+        "precision": 0.8108108108108109,
+        "recall": 0.44226044226044225,
+        "f1-score": 0.5723370429252782,
+        "support": 407.0
+      },
+      "accuracy": 0.8655,
+      "macro avg": {
+        "precision": 0.8415696348767215,
+        "recall": 0.7079475469305978,
+        "f1-score": 0.746269381741488,
+        "support": 2000.0
+      },
+      "weighted avg": {
+        "precision": 0.8598096175478065,
+        "recall": 0.8655,
+        "f1-score": 0.8494112586595006,
+        "support": 2000.0
+      }
+    }
+  },
+  "features": {
+    "numeric": [
+      "CreditScore",
+      "Age",
+      "Tenure",
+      "Balance",
+      "NumOfProducts",
+      "EstimatedSalary"
+    ],
+    "categorical": [
+      "Geography",
+      "Gender",
+      "HasCrCard",
+      "IsActiveMember"
+    ]
+  }
+}

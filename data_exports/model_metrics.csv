@@ -1,0 +1,8 @@
+Metric,Value
+Model,rf
+CV ROC-AUC,0.8553321840120365
+Holdout ROC-AUC,0.8569447721990094
+Accuracy,0.8655
+Precision (weighted),0.8598096175478065
+Recall (weighted),0.8655
+F1 (weighted),0.8494112586595006

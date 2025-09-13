@@ -1,0 +1,13 @@
+Geography,NumOfProducts,customers,churned,churn_rate_pct
+France,1,2514,564,22.43
+France,2,2367,135,5.7
+France,3,104,82,78.85
+France,4,29,29,100.0
+Germany,1,1349,578,42.85
+Germany,2,1040,126,12.12
+Germany,3,96,86,89.58
+Germany,4,24,24,100.0
+Spain,1,1221,267,21.87
+Spain,2,1183,87,7.35
+Spain,3,66,52,78.79
+Spain,4,7,7,100.0
