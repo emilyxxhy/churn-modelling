@@ -1,8 +1,6 @@
 
 # End-to-End Customer Churn Analytics & Prediction Pipeline
 
-**Project Access:** [GitHub Repository](https://github.com/emilyxxhy/churn-modelling)  
-**Status:** Production-Ready (v1.0)  
 **Date:** February 6, 2026
 
 ---
